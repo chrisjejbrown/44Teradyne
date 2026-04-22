@@ -610,39 +610,71 @@
       }
     ]
   },
-  {
-      "id": "hero-banner",
-      "title": "Hero Banner",
+    {
+    "id": "hero-banner",
       "fields": [
         {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "alt",
+          "label": "Image alt text",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
           "name": "eyebrow",
-          "title": "Eyebrow",
-          "type": "text"
+          "label": "Eyebrow",
+          "value": ""
         },
         {
-          "name": "headline",
-          "title": "Headline",
-          "type": "text"
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Headline",
+          "value": "Powering Innovation with Advanced Test Solutions"
         },
         {
-          "name": "description",
-          "title": "Description",
-          "type": "richtext"
+          "component": "richtext",
+          "valueType": "string",
+          "name": "body",
+          "label": "Body copy",
+          "value": "<p>Teradyne helps customers bring complex products to market with reliable automated test equipment and scalable systems built for performance, quality, and speed.</p>"
         },
         {
-          "name": "primaryCta",
-          "title": "Primary CTA",
-          "type": "link"
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "primaryLink",
+          "label": "Primary CTA link",
+          "value": "/contact-teradyne/"
         },
         {
-          "name": "media",
-          "title": "Hero Media",
-          "type": "asset"
+          "component": "text",
+          "valueType": "string",
+          "name": "primaryLabel",
+          "label": "Primary CTA label",
+          "value": "Contact us"
         },
         {
-          "name": "benefits",
-          "title": "Benefits",
-          "type": "list"
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "secondaryLink",
+          "label": "Secondary CTA link",
+          "value": ""
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "secondaryLabel",
+          "label": "Secondary CTA label",
+          "value": ""
         }
       ]
     }
