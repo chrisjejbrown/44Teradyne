@@ -609,5 +609,41 @@
         "label": "Placeholder Image Alt Text"
       }
     ]
-  }
+  },
+  {
+      "id": "hero-banner",
+      "title": "Hero Banner",
+      "fields": [
+        {
+          "name": "eyebrow",
+          "title": "Eyebrow",
+          "type": "text"
+        },
+        {
+          "name": "headline",
+          "title": "Headline",
+          "type": "text"
+        },
+        {
+          "name": "description",
+          "title": "Description",
+          "type": "richtext"
+        },
+        {
+          "name": "primaryCta",
+          "title": "Primary CTA",
+          "type": "link"
+        },
+        {
+          "name": "media",
+          "title": "Hero Media",
+          "type": "asset"
+        },
+        {
+          "name": "benefits",
+          "title": "Benefits",
+          "type": "list"
+        }
+      ]
+    }
 ]

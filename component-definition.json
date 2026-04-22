@@ -429,7 +429,14 @@
               }
             }
           }
-        }
+        },
+        {
+          "id": "hero-banner",
+          "title": "Hero Banner",
+          "model": "hero-banner",
+          "blockName": "hero-banner",
+          "description": "Full-width hero with media, headline, CTA, and benefit strip."
+    }
       ]
     }
   ]
