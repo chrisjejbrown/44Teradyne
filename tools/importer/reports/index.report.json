@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "http://localhost:8765",
+  "path": "index",
+  "timestamp": "2026-04-25T20:14:26.112Z",
+  "title": "The leader in semiconductor test & robotics",
+  "template": "homepage",
+  "blocks": [
+    "hero-banner",
+    "columns",
+    "cards",
+    "cards",
+    "carousel"
+  ]
+}

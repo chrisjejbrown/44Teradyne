@@ -1,33 +1,78 @@
+/* Columns - Teradyne Style */
+
+/* Two-column feature layout with icon headers */
+
 .columns > div {
   display: flex;
   flex-direction: column;
-}
-
-.columns img {
-  width: 100%;
+  gap: 24px;
 }
 
 .columns > div > div {
-  order: 1;
+  flex: 1;
+  background: var(--light-color);
+  padding: 36px 28px;
+  border-radius: 8px;
 }
 
-.columns > div > .columns-img-col {
-  order: 0;
+.columns img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin-bottom: 12px;
 }
 
-.columns > div > .columns-img-col img {
-  display: block;
+.columns h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin: 0 0 12px;
 }
 
-@media (width >= 900px) {
+.columns p {
+  color: var(--color-text-body);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.columns ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 2;
+  column-gap: 24px;
+}
+
+.columns li {
+  margin-bottom: 12px;
+  padding: 0;
+  break-inside: avoid;
+}
+
+.columns li a:any-link {
+  color: var(--color-text-heading);
+  text-decoration: none;
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  border-bottom: 2px solid var(--link-color);
+  padding-bottom: 3px;
+  transition: color 0.15s ease;
+}
+
+.columns li a:hover {
+  color: var(--link-color);
+}
+
+@media (width >= 992px) {
   .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    flex-direction: row;
+    gap: 32px;
+    align-items: stretch;
   }
 
   .columns > div > div {
-    flex: 1;
-    order: unset;
+    padding: 40px 36px;
   }
 }

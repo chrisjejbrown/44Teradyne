@@ -1,95 +1,110 @@
-function textValue(el) {
-  return (el?.textContent || '').trim();
-}
+const WISTIA_VIDEO_ID = 'ojg2f5ya2s';
 
-function firstElement(node) {
-  return node?.firstElementChild || node;
-}
+function createVideoBackground() {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'hero-banner-video';
+  wrapper.style.display = 'none';
 
-function createButton(href, label, variant = 'primary') {
-  if (!href || !label) return null;
+  const iframeSrc = `https://fast.wistia.net/embed/iframe/${WISTIA_VIDEO_ID}`
+    + '?seo=false&videoFoam=true&autoPlay=true&endVideoBehavior=loop'
+    + '&muted=true&controlsVisibleOnLoad=false&playbar=false'
+    + '&playButton=false&smallPlayButton=false&fullscreenButton=false'
+    + '&playbackRateControl=false&qualityControl=false'
+    + '&settingsControl=false&silentAutoPlay=true&volumeControl=false';
 
-  const a = document.createElement('a');
-  a.className = `hero-banner__button hero-banner__button--${variant}`;
-  a.href = href;
-  a.textContent = label;
-  return a;
-}
+  const iframe = document.createElement('iframe');
+  iframe.src = iframeSrc;
+  iframe.allow = 'autoplay; fullscreen';
+  iframe.title = 'Background video';
+  iframe.loading = 'lazy';
+  iframe.onload = () => {
+    try {
+      const doc = iframe.contentDocument || iframe.contentWindow?.document;
+      const hasError = doc?.body?.textContent?.includes('not authorized');
+      if (!hasError) wrapper.style.display = '';
+    } catch (e) {
+      wrapper.style.display = '';
+    }
+  };
 
-function normalizeImage(wrapper, altText) {
-  const picture = wrapper?.querySelector('picture');
-  if (!picture) return null;
-
-  const cloned = picture.cloneNode(true);
-  const img = cloned.querySelector('img');
-
-  if (img) {
-    if (altText) img.alt = altText;
-    img.loading = 'eager';
-    img.decoding = 'async';
-  }
-
-  return cloned;
+  wrapper.append(iframe);
+  return wrapper;
 }
 
 export default function decorate(block) {
-  const rows = [...block.children].map(firstElement);
+  const rows = [...block.children];
 
-  const [
-    imageRow,
-    altRow,
-    eyebrowRow,
-    titleRow,
-    bodyRow,
-    primaryLinkRow,
-    primaryLabelRow,
-    secondaryLinkRow,
-    secondaryLabelRow,
-  ] = rows;
+  const [imageRow, eyebrowRow, titleRow, bodyRow, primaryLinkRow, secondaryLinkRow] = rows;
 
-  const imageAlt = textValue(altRow);
-  const eyebrow = textValue(eyebrowRow);
-  const title = textValue(titleRow);
-  const primaryLink = textValue(primaryLinkRow);
-  const primaryLabel = textValue(primaryLabelRow);
-  const secondaryLink = textValue(secondaryLinkRow);
-  const secondaryLabel = textValue(secondaryLabelRow);
-
-  const media = normalizeImage(imageRow, imageAlt);
-  const bodyContent = bodyRow?.innerHTML?.trim() || '';
+  const picture = imageRow?.querySelector('picture') || imageRow?.querySelector('img');
+  const eyebrowText = eyebrowRow?.textContent?.trim() || '';
+  const titleEl = titleRow?.querySelector('h1, h2');
+  const titleText = titleEl?.textContent?.trim() || titleRow?.textContent?.trim() || '';
+  const bodyHTML = bodyRow?.querySelector('div')?.innerHTML?.trim() || '';
+  const primaryA = primaryLinkRow?.querySelector('a');
+  const secondaryA = secondaryLinkRow?.querySelector('a');
 
   block.textContent = '';
-  block.classList.add('hero-banner');
 
   const inner = document.createElement('div');
-  inner.className = 'hero-banner__inner';
+  inner.className = 'hero-banner-inner';
 
   const content = document.createElement('div');
-  content.className = 'hero-banner__content';
+  content.className = 'hero-banner-content';
 
-  if (eyebrow) {
-    const eyebrowEl = document.createElement('p');
-    eyebrowEl.className = 'hero-banner__eyebrow';
-    eyebrowEl.textContent = eyebrow;
-    content.append(eyebrowEl);
+  if (eyebrowText) {
+    const el = document.createElement('p');
+    el.className = 'hero-banner-eyebrow';
+    el.textContent = eyebrowText;
+    content.append(el);
   }
 
-  if (title) {
-    const titleEl = document.createElement('h1');
-    titleEl.className = 'hero-banner__title';
-    titleEl.textContent = title;
-    content.append(titleEl);
+  if (titleText) {
+    const el = document.createElement('h1');
+    el.className = 'hero-banner-title';
+    el.textContent = titleText;
+    content.append(el);
   }
 
-  if (bodyContent) {
-    const bodyEl = document.createElement('div');
-    bodyEl.className = 'hero-banner__body';
-    bodyEl.innerHTML = bodyContent;
-    content.append(bodyEl);
+  if (bodyHTML) {
+    const el = document.createElement('div');
+    el.className = 'hero-banner-body';
+    el.innerHTML = bodyHTML;
+    content.append(el);
   }
 
   const actions = document.createElement('div');
-  actions.className = 'hero-banner__actions';
+  actions.className = 'hero-banner-actions';
 
-  const primary = createButton(primaryLink, primaryLabel, 'primary');
+  if (primaryA) {
+    primaryA.className = 'hero-banner-cta hero-banner-cta-primary';
+    actions.append(primaryA);
+  }
+
+  if (secondaryA) {
+    secondaryA.className = 'hero-banner-cta hero-banner-cta-secondary';
+    actions.append(secondaryA);
+  }
+
+  if (actions.children.length) {
+    content.append(actions);
+  }
+
+  inner.append(content);
+
+  // Static image fallback behind the video
+  if (picture) {
+    const mediaDiv = document.createElement('div');
+    mediaDiv.className = 'hero-banner-media';
+    const img = picture.tagName === 'IMG' ? picture : picture.querySelector('img');
+    if (img) img.loading = 'eager';
+    mediaDiv.append(picture);
+    inner.append(mediaDiv);
+  }
+
+  // Wistia background video overlay (hidden until loaded on authorized domain)
+  const videoEl = createVideoBackground();
+  inner.append(videoEl);
+
+  block.append(inner);
 }

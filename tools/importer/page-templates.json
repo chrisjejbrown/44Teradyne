@@ -12,19 +12,28 @@
       "blocks": [
         {
           "name": "hero-banner",
-          "instances": [".masked-video-row"]
+          "instances": [
+            ".masked-video-row"
+          ]
         },
         {
           "name": "columns",
-          "instances": [".vc_custom_1750270793937"]
+          "instances": [
+            ".vc_custom_1750270793937"
+          ]
         },
         {
           "name": "cards",
-          "instances": [".three-columns-companies", "#three-column-container .three-column-row"]
+          "instances": [
+            ".three-columns-companies",
+            "#three-column-container .three-column-row"
+          ]
         },
         {
           "name": "carousel",
-          "instances": [".wpsisac-slick-carousal-wrp"]
+          "instances": [
+            ".wpsisac-slick-carousal-wrp"
+          ]
         }
       ],
       "sections": [
@@ -33,7 +42,9 @@
           "name": "Hero Section",
           "selector": ".masked-video-row",
           "style": "dark-gradient",
-          "blocks": ["hero-banner"],
+          "blocks": [
+            "hero-banner"
+          ],
           "defaultContent": []
         },
         {
@@ -41,7 +52,9 @@
           "name": "Two-Column Features",
           "selector": ".vc_custom_1750270793937",
           "style": null,
-          "blocks": ["columns"],
+          "blocks": [
+            "columns"
+          ],
           "defaultContent": []
         },
         {
@@ -49,23 +62,34 @@
           "name": "Teradyne Companies",
           "selector": ".vc_custom_1750270777936",
           "style": null,
-          "blocks": ["cards"],
-          "defaultContent": [".teradyne-companies", ".we-solve h2"]
+          "blocks": [
+            "cards"
+          ],
+          "defaultContent": [
+            ".teradyne-companies",
+            ".we-solve h2"
+          ]
         },
         {
           "id": "section-4-events",
           "name": "Events Carousel",
           "selector": "#slider-row",
           "style": "light-grey",
-          "blocks": ["carousel"],
-          "defaultContent": ["#slider-row .teradyne-companies"]
+          "blocks": [
+            "carousel"
+          ],
+          "defaultContent": [
+            "#slider-row .teradyne-companies"
+          ]
         },
         {
           "id": "section-5-cards",
           "name": "Three-Column Cards",
           "selector": "#three-column-container",
           "style": null,
-          "blocks": ["cards"],
+          "blocks": [
+            "cards"
+          ],
           "defaultContent": []
         }
       ]
