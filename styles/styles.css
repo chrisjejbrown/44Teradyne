@@ -83,7 +83,7 @@
   --transition-base: all 0.3s ease;
 
   /* Nav Heights */
-  --nav-height: 0px;
+  --nav-height: 64px;
   --breadcrumbs-height: 0px;
   --header-height: var(--nav-height);
 }
