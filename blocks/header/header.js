@@ -58,7 +58,9 @@ function focusNavSection() {
  * @param {Boolean} expanded Whether the element should be expanded or collapsed
  */
 function toggleAllNavSections(sections, expanded = false) {
-  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
+  const items = sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li');
+  const fallbackItems = items.length ? items : sections.querySelectorAll('.nav-sections > ul > li');
+  fallbackItems.forEach((section) => {
     section.setAttribute('aria-expanded', expanded);
   });
 }
@@ -74,7 +76,11 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   const button = nav.querySelector('.nav-hamburger button');
   document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
+  let sectionsExpanded = false;
+  if (!isDesktop.matches) {
+    sectionsExpanded = expanded ? 'false' : 'true';
+  }
+  toggleAllNavSections(navSections, sectionsExpanded);
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
   // enable nav dropdown keyboard accessibility
   const navDrops = navSections.querySelectorAll('.nav-drop');
@@ -186,8 +192,9 @@ export default async function decorate(block) {
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
   const classes = ['brand', 'sections', 'tools'];
+  const sections = [...nav.children].filter((child) => child.tagName === 'DIV' && child.classList.contains('section'));
   classes.forEach((c, i) => {
-    const section = nav.children[i];
+    const section = sections[i];
     if (section) section.classList.add(`nav-${c}`);
   });
 
@@ -200,7 +207,9 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
+    let navItems = navSections.querySelectorAll(':scope .default-content-wrapper > ul > li');
+    if (!navItems.length) navItems = navSections.querySelectorAll(':scope > ul > li');
+    navItems.forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
         if (isDesktop.matches) {
@@ -212,7 +221,7 @@ export default async function decorate(block) {
     });
     navSections.querySelectorAll('.button-container').forEach((buttonContainer) => {
       buttonContainer.classList.remove('button-container');
-      buttonContainer.querySelector('.button').classList.remove('button');
+      buttonContainer.querySelector('.button')?.classList.remove('button');
     });
   }
 

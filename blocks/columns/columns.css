@@ -2,6 +2,16 @@
 
 /* Two-column feature layout with icon headers */
 
+.columns-wrapper {
+  margin-top: -60px;
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px;
+}
+
 .columns > div {
   display: flex;
   flex-direction: column;
