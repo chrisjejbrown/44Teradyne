@@ -158,6 +158,31 @@ export default {
     WebImporter.rules.transformBackgroundImages(main, document);
     WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
 
+    // Map local hash-based image paths back to original source URLs
+    const IMAGE_MAP = {
+      'a533ca5bbefa628afc8a5713352f36ae': 'https://www.teradyne.com/wp-content/uploads/2025/10/TeradyneLifestyle255705-1.jpg',
+      '9e2af5b6f67309172c32bc9461ec7e11': 'https://www.teradyne.com/wp-content/uploads/2025/07/latest-blog-header.jpg',
+      '38fae5974fe1784c111cc439e8ca56d4': 'https://www.teradyne.com/wp-content/uploads/2025/07/homeimage-cropped.jpg',
+      '1aa9c4f724daf8fb365ace6e1e3ec837': 'https://www.teradyne.com/wp-content/uploads/2026/02/AAS-2026-web-graphic-1.png',
+      '8725db7d56938f0f2f233067fd8a9b2a': 'https://embed-ssl.wistia.com/deliveries/8abfdb977b7ac0f3bd3f34b40ba9911c89a5289b.webp?image_crop_resized=1280x720',
+      'f273cd86f0712a4dff9dfa70c8b3467a': 'https://www.teradyne.com/wp-content/uploads/2025/07/circuit-icon.svg',
+      '0062ba123c2e0bfe6659e619e03f7718': 'https://www.teradyne.com/wp-content/uploads/2025/07/robot-icon.svg',
+      'de5ef0679a5d28be85228a4d8b641d5a': 'https://www.teradyne.com/wp-content/uploads/2025/07/mir-logo.svg',
+      '00e775e1526d8dbf732fd3fd0941693c': 'https://www.teradyne.com/wp-content/uploads/2025/07/ur-logo.svg',
+      'edf71a67375c8c2422f77c142c27ba6b': 'https://www.teradyne.com/wp-content/uploads/2025/07/litepoint-logo.svg',
+      '9cac75cd345d730641246da46ca3a602': 'https://www.teradyne.com/wp-content/uploads/2025/07/quantifi-photonics-logo-final.svg',
+    };
+
+    main.querySelectorAll('img').forEach((img) => {
+      const src = img.getAttribute('src') || '';
+      for (const [hash, originalUrl] of Object.entries(IMAGE_MAP)) {
+        if (src.includes(hash)) {
+          img.setAttribute('src', originalUrl);
+          break;
+        }
+      }
+    });
+
     const path = WebImporter.FileUtils.sanitizePath(
       new URL(params.originalURL).pathname.replace(/\/$/, '').replace(/\.html$/, '') || '/index'
     );
