@@ -288,58 +288,37 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "alt",
+        "name": "imageAlt",
         "label": "Image alt text",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "eyebrow",
-        "label": "Eyebrow",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
+        "name": "content_title",
         "label": "Headline",
         "value": "Powering Innovation with Advanced Test Solutions"
       },
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "body",
+        "name": "content_body",
         "label": "Body copy",
-        "value": "<p>Teradyne helps customers bring complex products to market with reliable automated test equipment and scalable systems built for performance, quality, and speed.</p>"
+        "value": "<p>Teradyne helps customers bring complex products to market.</p>"
       },
       {
         "component": "aem-content",
         "valueType": "string",
-        "name": "primaryLink",
+        "name": "cta_primaryLink",
         "label": "Primary CTA link",
-        "value": "/contact-teradyne/"
+        "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "primaryLabel",
+        "name": "cta_primaryLabel",
         "label": "Primary CTA label",
         "value": "Contact us"
-      },
-      {
-        "component": "aem-content",
-        "valueType": "string",
-        "name": "secondaryLink",
-        "label": "Secondary CTA link",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "secondaryLabel",
-        "label": "Secondary CTA label",
-        "value": ""
       }
     ]
   },
