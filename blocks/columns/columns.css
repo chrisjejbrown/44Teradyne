@@ -29,7 +29,7 @@
   margin-bottom: 12px;
 }
 
-.columns > div > div > p:first-child:has(+ h2) > img {
+.columns > div > div > p:first-child:has(+ h2) img {
   width: 56px;
   height: 56px;
   object-fit: contain;
