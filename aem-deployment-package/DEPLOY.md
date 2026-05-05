@@ -35,7 +35,7 @@ Upload page content to JCR at:
 
 ### 4. Verify
 
-Preview at: `https://main--teradyne--chrisjejbrown.aem.page/`
+Preview at: `https://main--44teradyne--chrisjejbrown.aem.page/`
 
 ## Image References
 
