@@ -1,0 +1,80 @@
+{
+  "data": [
+    {
+      "name": "Hero Banner",
+      "path": "/tools/sidekick/blocks/hero-banner",
+      "description": "Full-width hero with gradient background, heading, body text, and optional CTAs"
+    },
+    {
+      "name": "Columns",
+      "path": "/tools/sidekick/blocks/columns",
+      "description": "Two-column layout with icons, headings, descriptions, and link lists"
+    },
+    {
+      "name": "Cards",
+      "path": "/tools/sidekick/blocks/cards",
+      "description": "Grid of cards with images, headings, descriptions, and links"
+    },
+    {
+      "name": "Carousel",
+      "path": "/tools/sidekick/blocks/carousel",
+      "description": "Sliding carousel with image and text slides"
+    },
+    {
+      "name": "Accordion",
+      "path": "/tools/sidekick/blocks/accordion",
+      "description": "Expandable/collapsible content sections"
+    },
+    {
+      "name": "Tabs",
+      "path": "/tools/sidekick/blocks/tabs",
+      "description": "Tabbed content panels"
+    },
+    {
+      "name": "Hero",
+      "path": "/tools/sidekick/blocks/hero",
+      "description": "Simple hero block with image and text"
+    },
+    {
+      "name": "Quote",
+      "path": "/tools/sidekick/blocks/quote",
+      "description": "Blockquote with attribution"
+    },
+    {
+      "name": "Embed",
+      "path": "/tools/sidekick/blocks/embed",
+      "description": "Embed external content (videos, maps, etc.)"
+    },
+    {
+      "name": "Video",
+      "path": "/tools/sidekick/blocks/video",
+      "description": "Video player block"
+    },
+    {
+      "name": "Modal",
+      "path": "/tools/sidekick/blocks/modal",
+      "description": "Modal/dialog overlay"
+    },
+    {
+      "name": "Fragment",
+      "path": "/tools/sidekick/blocks/fragment",
+      "description": "Include content from another page"
+    },
+    {
+      "name": "Form",
+      "path": "/tools/sidekick/blocks/form",
+      "description": "Form block for data collection"
+    },
+    {
+      "name": "Search",
+      "path": "/tools/sidekick/blocks/search",
+      "description": "Search input and results"
+    },
+    {
+      "name": "Table",
+      "path": "/tools/sidekick/blocks/table",
+      "description": "Data table with rows and columns"
+    }
+  ],
+  ":type": "sheet"
+}

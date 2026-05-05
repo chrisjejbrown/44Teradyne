@@ -1,6 +1,6 @@
 {
   "type": "xwalk",
-  "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json",
+  "libraryUrl": "https://main--44teradyne--chrisjejbrown.aem.page/tools/sidekick/library.json",
   "contentHostUrl": "author-p107109-e1000961.adobeaemcloud.com",
   "aemSitePath": "/content/teradyne",
   "aemAssetsFolderPath": "/content/dam/teradyne",
