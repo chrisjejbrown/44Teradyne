@@ -3,13 +3,10 @@
 /* Two-column feature layout with icon headers */
 
 .columns-wrapper {
-  margin-top: -60px;
-  margin-bottom: 60px;
+  margin: -60px auto 60px;
   position: relative;
   z-index: 2;
   max-width: var(--container-max-width);
-  margin-left: auto;
-  margin-right: auto;
   padding: 0 24px;
 }
 
