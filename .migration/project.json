@@ -1,9 +1,10 @@
 {
-  "type": "xwalk",
+  "type": "da",
   "libraryUrl": "https://main--44teradyne--chrisjejbrown.aem.page/tools/sidekick/library.json",
-  "contentHostUrl": "author-p107109-e1000961.adobeaemcloud.com",
-  "aemSitePath": "/content/teradyne",
-  "aemAssetsFolderPath": "/content/dam/teradyne",
+  "contentSourceUrl": "https://da.live/#/chrisjejbrown/44teradyne",
   "aemSiteName": "teradyne",
-  "aemSiteTitle": "Teradyne"
+  "aemSiteTitle": "Teradyne",
+  "previewOrg": "chrisjejbrown",
+  "previewSite": "44teradyne",
+  "contentHostUrl": "https://content.da.live/chrisjejbrown/44teradyne/"
 }

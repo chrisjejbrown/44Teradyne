@@ -1,4 +1,3 @@
-import { moveInstrumentation } from '../../scripts/scripts.js';
 import { fetchPlaceholders } from '../../scripts/placeholders.js';
 
 function updateActiveSlide(slide) {
@@ -130,7 +129,6 @@ export default async function decorate(block) {
 
   rows.forEach((row, idx) => {
     const slide = createSlide(row, idx, carouselId);
-    moveInstrumentation(row, slide);
     slidesWrapper.append(slide);
 
     if (slideIndicators) {

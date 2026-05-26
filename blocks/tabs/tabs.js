@@ -1,6 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
-import { moveInstrumentation } from '../../scripts/scripts.js';
-
 // keep track globally of the number of tab blocks on the page
 let tabBlockCnt = 0;
 
@@ -53,13 +50,7 @@ export default async function decorate(block) {
     // add the new tab list button, to the tablist
     tablist.append(button);
 
-    // remove the tab heading from the dom, which also removes it from the UE tree
     tab.remove();
-
-    // remove the instrumentation from the button's h1, h2 etc (this removes it from the tree)
-    if (button.firstElementChild) {
-      moveInstrumentation(button.firstElementChild, null);
-    }
   });
 
   block.prepend(tablist);
