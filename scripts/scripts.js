@@ -143,12 +143,13 @@ async function loadLazy(doc) {
       addSidekickListeners(document.querySelector('aem-sidekick'));
     }, { once: true });
   }
-}
-
-(() => {
+  (() => {
   const hasQE = new URL(window.location.href).searchParams.has('quick-edit');
   if (hasQE) import('../tools/quick-edit/quick-edit.js').then((mod) => mod.default());
 })();
+}
+
+
 
 /**
  * Loads everything that happens a lot later,
