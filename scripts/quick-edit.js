@@ -16,7 +16,7 @@ function addImportmap() {
 }
 
 async function loadModule(origin, payload) {
-  const { default: loadQuickEdit } = await import(`${origin}/nx/public/plugins/quick-edit/quick-edit.js`);
+  const { default: loadQuickEdit } = await import('${origin}/nx/public/plugins/quick-edit/quick-edit.js');
   loadQuickEdit(payload, loadPage);
 }
 
@@ -31,7 +31,7 @@ function generateSidekickPayload() {
   return {
     detail: {
       config: {
-        mountpoint: `https://content.da.live/${owner}/${repo}/`
+        mountpoint: 'https://content.da.live/${owner}/${repo}/'
       },
       location: {
         pathname: window.location.pathname,
